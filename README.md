@@ -70,10 +70,10 @@ For this activity you can use React, Vue or Angular or similar framework
 
 ##### What we'd like you to do:
 - [ ] Take the following data and format it into a table
-- [ ] Add toggles to sort by id, type and topping (both ascending and descending)
-- [ ] Add a text input to filter the data
-- [ ] Add a form to collect new baked goods
-- [ ] Make the elements look nice using CSS
+- [x] Add toggles to sort by id, type and topping (both ascending and descending)
+- [x] Add a text input to filter the data
+- [x] Add a form to collect new baked goods
+- [x] Make the elements look nice using CSS
 - [ ] Once you have completed the task, please push the repository into a public Git host (Bitbucket/Github/Gitlab) with a README.md with instructions on how to build and run the application locally.
 
 
