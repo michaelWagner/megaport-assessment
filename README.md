@@ -78,11 +78,11 @@ For this activity you can use React, Vue or Angular or similar framework
 
 #### The data:
 
-See (baked-goods.js)[https://github.com/michaelWagner/megaport-assessment/blob/main/src/constants/baked-goods.js] for more details.
+See [baked-goods.js](https://github.com/michaelWagner/megaport-assessment/blob/main/src/constants/baked-goods.js) for more details.
 
 ### Activity 2
 
-## See (objectService)[https://github.com/michaelWagner/megaport-assessment/blob/main/src/services/objectService.js] for solution.
+## See [objectService](https://github.com/michaelWagner/megaport-assessment/blob/main/src/services/objectService.js) for solution.
 
 Given a path to a property of an object, write a function that returns the value of the property. The function should accept a parameter of the path and optionally the object you are searching in, for example:
 
@@ -154,8 +154,3 @@ Write a reusable fetch function that GETs the list of Megaport enabled locations
 - [x] Add form validation.
 - [ ] Implement data persistence.
 - [x] Enhance UI/UX.
-
-
-### License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
