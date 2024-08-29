@@ -49,7 +49,7 @@ const sortedData = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="table-container">
     <table>
       <thead>
         <tr>
@@ -87,17 +87,25 @@ const sortedData = computed(() => {
 </template>
 
 <style scoped>
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   table-layout: auto;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  border: 1px solid #1e1e1e;
 }
 
 th, td {
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #1e1e1e;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
@@ -105,7 +113,8 @@ th, td {
 
 th {
   cursor: pointer;
-  background-color: #f7f7f7;
+  background-color: #333333;
+  color: #00aaff;
   position: relative;
   min-width: 120px;
 }
@@ -117,30 +126,32 @@ th div {
 }
 
 th:hover {
-  background-color: #f1f1f1;
+  background-color: #444444;
 }
 
 th div span {
   font-size: 0.8em;
   margin-left: 8px;
   flex-shrink: 0;
+  color: #cccccc;
 }
 
 tr:nth-child(odd) {
-  background-color: #f9f9f9;
+  background-color: #2e2e2e;
 }
 
 tr:nth-child(even) {
-  background-color: #ffffff;
+  background-color: #333333;
 }
 
 tr:hover {
-  background-color: #f1f1f1;
+  background-color: #444444;
 }
 
 td.no-content {
   text-align: center;
   padding: 16px;
+  color: #cccccc;
 }
 
 /* Mobile Screens */
@@ -160,5 +171,4 @@ td.no-content {
     margin-top: 4px;
   }
 }
-
 </style>

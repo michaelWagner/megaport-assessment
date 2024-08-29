@@ -48,25 +48,27 @@ const closeModal = () => {
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+  background-color: #1e1e1e;
+  margin: 10% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #333;
   width: 80%;
   max-width: 500px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  border-radius: 8px;
 }
 
 .close {
-  color: #aaa;
+  color: #ffffff;
   float: right;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #00aaff;
   text-decoration: none;
   cursor: pointer;
 }

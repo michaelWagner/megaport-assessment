@@ -69,17 +69,20 @@ For this activity you can use React, Vue or Angular or similar framework
 - Do not add any other dependencies (e.g Lodash)
 
 ##### What we'd like you to do:
-- [ ] Take the following data and format it into a table
+- [x] Take the following data and format it into a table
 - [x] Add toggles to sort by id, type and topping (both ascending and descending)
 - [x] Add a text input to filter the data
 - [x] Add a form to collect new baked goods
 - [x] Make the elements look nice using CSS
-- [ ] Once you have completed the task, please push the repository into a public Git host (Bitbucket/Github/Gitlab) with a README.md with instructions on how to build and run the application locally.
+- [x] Once you have completed the task, please push the repository into a public Git host (Bitbucket/Github/Gitlab) with a README.md with instructions on how to build and run the application locally.
 
+#### The data:
+
+See (baked-goods.js)[https://github.com/michaelWagner/megaport-assessment/blob/main/src/constants/baked-goods.js] for more details.
 
 ### Activity 2
 
-#### The data:
+## See (objectService)[https://github.com/michaelWagner/megaport-assessment/blob/main/src/services/objectService.js] for solution.
 
 Given a path to a property of an object, write a function that returns the value of the property. The function should accept a parameter of the path and optionally the object you are searching in, for example:
 
@@ -125,17 +128,19 @@ Write a reusable fetch function that GETs the list of Megaport enabled locations
 
 - `src/`
   - `components/`
-    - `BakedGoodsTable.vue` - The heart of the application where data is displayed and managed.
-  - `App.vue` - The main component that ties everything together.
+    - `DataTable.vue` - Reusable component where data is displayed and sorted.
+  - `pages/`
+    - `Home.vue` - The heart of the application where the components are shown.
+  - `services/`
+    - `objectService.js` - Reusable functions that interacting with object data.
+  - `App.vue` - The main component that ties the layout together.
   - `main.js` - The entry point for initializing the Vue application.
-- `public/` - Contains static assets.
+- `public/` - Contains the static assets.
 - `vite.config.js` - Configuration for Vite.
 
 #### Next Steps
-
-- **Form Validation**: Add validation to ensure new entries are correctly submitted.
 - **Data Persistence**: Implement a way to save data persistently, perhaps using localStorage or a backend service.
-- **UI/UX Enhancements**: Refine styling and interactions for a more polished user experience.
+- **Pagination**: For longer data sets, pagination will help the page not get cluttered.
 
 ### TODO Checklist
 
@@ -146,15 +151,10 @@ Write a reusable fetch function that GETs the list of Megaport enabled locations
 - [x] Implement filtering feature.
 - [x] Create form for new baked goods.
 - [x] Apply basic CSS styling.
-- [ ] Add form validation.
+- [x] Add form validation.
 - [ ] Implement data persistence.
-- [ ] Enhance UI/UX.
+- [x] Enhance UI/UX.
 
-### Known Issues
-
-- **Form Validation**: Not yet implemented but planned for future updates.
-- **Refactor Table Component**: If the table functionality grows, it should be abstracted into its own component.
-- **Refactor Input Component**: Create a reusable input component with validation to standardize input fields.
 
 ### License
 
