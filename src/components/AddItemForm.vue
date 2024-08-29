@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits, watch } from 'vue'
+import { computed, ref, defineEmits } from 'vue'
 
 const props = defineProps({
   data: {
@@ -8,10 +8,14 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['add'])
+const emit = defineEmits(['add', 'close'])
 
-const form = ref({ type: '', topping: '' })
-const errors = ref({ type: '', topping: '' })
+const form = ref({ id: '', type: '', topping: '' })
+const errors = ref({ id: '', type: '', topping: '' })
+
+const hasError = computed(() => {
+  return Object.values(errors.value).some(error => error !== '')
+})
 
 const validate = (field) => {
   let isValid = true
@@ -34,21 +38,45 @@ const validate = (field) => {
     }
   }
 
+  if (field === 'id') {
+    if (isNaN(form.value.id)) {
+      errors.value.id = 'ID must be a number'
+      isValid = false
+    } else {
+      errors.value.id = ''
+    }
+  }
+
   return isValid
+}
+
+const generateNextId = () => {
+  if (props.data.length === 0) {
+    return '0001'
+  }
+
+  const ids = props.data.map(item => parseInt(item.id))
+  const maxId = Math.max(...ids)
+  const nextId = (maxId + 1).toString().padStart(4, '0')
+
+  return nextId
 }
 
 const handleSubmit = () => {
   const isFormValid = validate()
 
   if (isFormValid) {
-    const nextId = props.data.length > 0
-      ? Math.max(...props.data.map(item => item.id)) + 1
-      : 1
+    // If the id is not provided or is not a number, generate the next id
+    const id = form.value.id.trim() !== '' && !isNaN(form.value.id)
+    ? form.value.id.toString().padStart(4, '0')
+    : generateNextId()
 
-    emit('add', { id: nextId, ...form.value })
-    form.value = { type: '', topping: '' }
+    emit('add', { ...form.value, id })
+    form.value = { id: '', type: '', topping: '' }
+    emit('close')
   }
 }
+
 </script>
 
 <template>
@@ -80,7 +108,19 @@ const handleSubmit = () => {
       />
       <span v-if="errors.topping" id="topping-error" class="error">{{ errors.topping }}</span>
     </div>
-    <button type="submit">Add</button>
+    <div>
+      <label for="id">Id (Optional):</label>
+      <input
+        id="id"
+        v-model="form.id"
+        @blur="validate('id')"
+        type="text"
+        placeholder="Enter id (optional)"
+        aria-describedby="id-error"
+      />
+      <span v-if="errors.id" id="id-error" class="error">{{ errors.id }}</span>
+    </div>
+    <button type="submit" :disabled="hasError">Add</button>
   </form>
 </template>
 
