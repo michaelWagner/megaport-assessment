@@ -53,7 +53,7 @@ const handleSubmit = () => {
 
 <template>
   <form @submit.prevent="handleSubmit" aria-labelledby="form-title">
-    <h2 id="form-title">Add New Baked Good</h2>
+    <h2 id="form-title">Add Item</h2>
     <div>
       <label for="type">Type:</label>
       <input

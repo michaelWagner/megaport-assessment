@@ -1,14 +1,10 @@
 <script setup>
 import { computed, ref } from 'vue'
 import DataTable from './components/DataTable.vue'
-import AddBakedGoodsForm from './components/AddBakedGoodsForm.vue'
+import AddItemForm from './components/AddItemForm.vue'
+import { BAKED_GOODS } from './constants'
 
-const data = ref([
-  { id: 1, type: 'Cake', topping: 'Chocolate' },
-  { id: 2, type: 'Pie', topping: 'Apple' },
-  { id: 3, type: 'Cake', topping: 'Vanilla' },
-  { id: 4, type: 'Tart', topping: 'Lemon' },
-])
+const data = ref(BAKED_GOODS.initialData)
 
 const headers = [
   { key: 'id', label: 'ID' },
@@ -22,6 +18,7 @@ const sortKey = ref('id')
 
 const filteredData = computed(() => {
   return data.value.filter(item =>
+    item.id.toLowerCase().includes(filterText.value.toLowerCase()) ||
     item.type.toLowerCase().includes(filterText.value.toLowerCase()) ||
     item.topping.toLowerCase().includes(filterText.value.toLowerCase())
   )
@@ -53,7 +50,7 @@ const handleAddNewItem = (newItem) => {
       :headers="headers"
       @update:sortKey="sortKey = $event"
       @update:isAsc="isAsc = $event">
-      <AddBakedGoodsForm :data="data" @add="handleAddNewItem" />
+      <AddItemForm :data="data" @add="handleAddNewItem" />
     </DataTable>
   </div>
 </template>
