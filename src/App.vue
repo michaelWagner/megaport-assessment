@@ -1,14 +1,11 @@
 <script setup>
 import { computed, ref } from 'vue'
 import DataTable from './components/DataTable.vue'
-import AddBakedGoodsForm from './components/AddBakedGoodsForm.vue'
+import AddItemForm from './components/AddItemForm.vue'
+import Modal from './components/Modal.vue'
+import { BAKED_GOODS } from './constants'
 
-const data = ref([
-  { id: 1, type: 'Cake', topping: 'Chocolate' },
-  { id: 2, type: 'Pie', topping: 'Apple' },
-  { id: 3, type: 'Cake', topping: 'Vanilla' },
-  { id: 4, type: 'Tart', topping: 'Lemon' },
-])
+const data = ref(BAKED_GOODS.initialData)
 
 const headers = [
   { key: 'id', label: 'ID' },
@@ -18,10 +15,12 @@ const headers = [
 
 const filterText = ref('')
 const isAsc = ref(true)
+const showModal = ref(false)
 const sortKey = ref('id')
 
 const filteredData = computed(() => {
   return data.value.filter(item =>
+    item.id.toLowerCase().includes(filterText.value.toLowerCase()) ||
     item.type.toLowerCase().includes(filterText.value.toLowerCase()) ||
     item.topping.toLowerCase().includes(filterText.value.toLowerCase())
   )
@@ -35,7 +34,8 @@ const handleAddNewItem = (newItem) => {
 <template>
   <div>
     <h1>Baked Goods Management</h1>
-    <div class="filter-input-container">
+    <div class="action-container">
+      <button @click="showModal = true">Add Item</button>
       <label for="filter-text" class="sr-only">Filter table</label>
       <input
         id="filter-text"
@@ -53,7 +53,10 @@ const handleAddNewItem = (newItem) => {
       :headers="headers"
       @update:sortKey="sortKey = $event"
       @update:isAsc="isAsc = $event">
-      <AddBakedGoodsForm :data="data" @add="handleAddNewItem" />
     </DataTable>
   </div>
+
+  <Modal v-model="showModal">
+    <AddItemForm :data="data" @add="handleAddNewItem" @close="showModal = false" />
+  </Modal>
 </template>
