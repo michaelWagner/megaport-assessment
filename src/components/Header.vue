@@ -42,7 +42,11 @@ onUnmounted(() => {
         </ul>
       </transition>
     </nav>
+<<<<<<< HEAD
   </header> 
+=======
+  </header>
+>>>>>>> 769a64f (Add function playground, routes, header, updated styles, pages, and services.)
 </template>
 
 <style scoped>
