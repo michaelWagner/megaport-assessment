@@ -3,8 +3,8 @@ import Home from '../pages/Home.vue'
 import FunctionPlayground from '../pages/FunctionPlayground.vue'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/function-playground', component: FunctionPlayground },
+  { path: '/megaport-assessment', component: Home },
+  { path: '/megaport-assessment/function-playground', component: FunctionPlayground },
 
 ]
 

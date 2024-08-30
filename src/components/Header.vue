@@ -37,8 +37,8 @@ onUnmounted(() => {
       </button>
       <transition name="fade">
         <ul v-if="menuOpen" class="menu">
-          <li><router-link @click="menuOpen = false" to="/">Home</router-link></li>
-          <li><router-link @click="menuOpen = false" to="/function-playground">Function Playground</router-link></li>
+          <li><router-link @click="menuOpen = false" to="/megaport-assessment">Home</router-link></li>
+          <li><router-link @click="menuOpen = false" to="/megaport-assessment/function-playground">Function Playground</router-link></li>
         </ul>
       </transition>
     </nav>
