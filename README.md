@@ -42,7 +42,7 @@ Before you dive in, make sure you have:
 
 4. **Open the App**
 
-   Visit `http://localhost:5173/megaport-assessment` in your browser to see the app in action.
+   Visit `http://localhost:3000/megaport-assessment` in your browser to see the app in action.
 
 #### Running Tests
 
