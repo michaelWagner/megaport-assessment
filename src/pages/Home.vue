@@ -35,7 +35,7 @@ const handleAddNewItem = (newItem) => {
 
 <template>
   <div>
-    <h1>Baked Goods Management</h1>
+    <h2>Baked Goods</h2>
     <div class="action-container">
       <button @click="showModal = true">Add Item</button>
       <label for="filter-text" class="sr-only">Filter table</label>
@@ -61,3 +61,11 @@ const handleAddNewItem = (newItem) => {
     </Modal>
   </div>
 </template>
+
+<style scoped>
+.action-container {
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+}
+</style>

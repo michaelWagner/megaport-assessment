@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
-import FunctionPlayground from '../pages/FunctionPlayground.vue'
+import CodeSandbox from '../pages/CodeSandbox.vue'
 
 const routes = [
-  { path: '/megaport-assessment', component: Home },
-  { path: '/megaport-assessment/function-playground', component: FunctionPlayground },
+  { path: '/', component: Home },
+  { path: '/code-sandbox', component: CodeSandbox },
 
 ]
 

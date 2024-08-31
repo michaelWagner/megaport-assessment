@@ -37,8 +37,8 @@ onUnmounted(() => {
       </button>
       <transition name="fade">
         <ul v-if="menuOpen" class="menu">
-          <li><router-link @click="menuOpen = false" to="/megaport-assessment">Home</router-link></li>
-          <li><router-link @click="menuOpen = false" to="/megaport-assessment/function-playground">Function Playground</router-link></li>
+          <li><router-link @click="menuOpen = false" to="/">Home</router-link></li>
+          <li><router-link @click="menuOpen = false" to="/code-sandbox">Code Sandbox</router-link></li>
         </ul>
       </transition>
     </nav>
@@ -52,7 +52,7 @@ header {
   align-items: center;
   padding: 10px 20px;
   background-color: #1e1e1e;
-  color: #00aaff;
+  color: #fff;
 }
 
 .logo-title {
@@ -73,13 +73,13 @@ nav {
   font-size: 24px;
   background: none;
   border: none;
-  color: #00aaff;
+  color: #fff;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .hamburger:hover {
-  color: #007acc;
+  color: #e30b5c;
   transform: scale(1.1);
 }
 
@@ -101,7 +101,7 @@ nav {
 }
 
 .menu li a {
-  color: #00aaff;
+  color: #fff;
   display: block;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -109,19 +109,7 @@ nav {
 }
 
 .menu li a:hover {
-  color: #007acc;
-}
-
-/* Animation */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  color: #e30b5c;
 }
 
 /* Fade transition for menu */

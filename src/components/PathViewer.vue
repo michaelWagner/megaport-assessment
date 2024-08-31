@@ -42,10 +42,10 @@ const updateData = (event) => {
 </script>
 
 <template>
-  <div class="container">
-    <h1>Get an object's value</h1>
+  <div class="card">
+    <h3>Get a value from an object using a specified path</h3>
+    <em class="description">Test the getValue function with this object (editable):</em>
 
-    <p>Test the getValue function with this object (editable):</p>
     <pre class="code-block" contenteditable="true" @blur="updateData">{{ JSON.stringify(data, null, 2) }}</pre>
     <p v-if="hasError" class="error">Invalid JSON format. Please correct it.</p>
 
@@ -63,7 +63,8 @@ const updateData = (event) => {
       </form>
     </div>
 
-    <p v-if="submitted && !value" class="error">No value found at the specified path</p>
+    <p v-if="submitted && !value" class="error">
+      No value found at the <span class="underline">{{ path }}</span> path</p>
 
     <h2 v-if="submitted && !!value">Value found:</h2>
     <div v-if="submitted && !!value" class="value-section">
@@ -73,51 +74,3 @@ const updateData = (event) => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #2b2b2b;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-h1, h2 {
-  color: #00aaff;
-  text-align: left;
-}
-
-.input-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-
-.code-block {
-  background-color: #282c34;
-  color: #61dafb;
-  padding: 15px;
-  border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  outline: none;
-}
-
-.value-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: left;
-}
-
-.value-found {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-left: 10px;
-}
-</style>
