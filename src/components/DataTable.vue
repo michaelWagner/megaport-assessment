@@ -99,7 +99,7 @@ table {
   table-layout: auto;
   background-color: #2b2b2b;
   color: #ffffff;
-  border: 1px solid #1e1e1e;
+  border: 1px solid #0C1124;
 }
 
 th, td {
