@@ -51,7 +51,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #1e1e1e;
+  background-color: #0C1124;
   color: #fff;
 }
 
@@ -85,7 +85,7 @@ nav {
 
 .menu {
   animation: slideIn 0.1s ease-in-out;
-  background-color: #2b2b2b;
+  background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   list-style-type: none;
@@ -93,7 +93,7 @@ nav {
   position: absolute;
   right: 0;
   top: 50px;
-  width: max-content;
+  width: 150px;
 }
 
 .menu li {
@@ -101,7 +101,7 @@ nav {
 }
 
 .menu li a {
-  color: #fff;
+  color: #333;
   display: block;
   text-decoration: none;
   transition: color 0.3s ease;
