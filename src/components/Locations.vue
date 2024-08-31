@@ -33,17 +33,17 @@ loadLocations()
     <div class="locations-select">
       <select v-if="locations.length" v-model="selectedLocation">
         <option value="" disabled>Select a location</option>
-        <option v-for="location in locations" :key="location.id" :value="location.name">
+        <option v-for="location in locations" :key="location.id" :value="location">
           {{ location.name }}
         </option>
       </select>
     </div>
 
-    <h2 v-if="selectedLocation">Selected Location:</h2>
+    <h4 v-if="selectedLocation">Selected Location:</h4>
     <div v-if="selectedLocation" class="value-section">
-      <em class="value-found">
-        {{ selectedLocation }}
-      </em>
+      <span class="value-found">
+        <pre class="code-block">{{ JSON.stringify(selectedLocation, null, 2) }}</pre>
+      </span>
     </div>
   </div>
 </template>
