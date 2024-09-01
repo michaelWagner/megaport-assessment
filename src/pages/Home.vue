@@ -1,9 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue'
-import DataTable from '../components/DataTable.vue'
-import AddItemForm from '../components/AddItemForm.vue'
-import Modal from '../components/Modal.vue'
-import { BAKED_GOODS } from '../constants'
+import DataTable from '@/components/DataTable.vue'
+import AddItemForm from '@/components/AddItemForm.vue'
+import Modal from '@/components/Modal.vue'
+import { BAKED_GOODS } from '@/constants'
 
 const data = ref(BAKED_GOODS.initialData)
 
@@ -43,7 +43,7 @@ const handleAddNewItem = (newItem) => {
         id="filter-text"
         v-model="filterText"
         type="text"
-        placeholder="Filter by type or topping..."
+        placeholder="Filter data..."
         aria-label="Filter table"
         @input="handleFilter" />
     </div>
@@ -64,8 +64,9 @@ const handleAddNewItem = (newItem) => {
 
 <style scoped>
 .action-container {
-  margin: 16px 0;
   display: flex;
+  gap: 20px;
   justify-content: space-between;
+  margin: 16px 0;
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { getValue } from '../services/objectService'
+import { getValue } from '@/services/objectService'
 
 const hasError = ref(false)
 const path = ref('')

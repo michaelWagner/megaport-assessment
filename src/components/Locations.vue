@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { getLocations } from '../services/locationsService'
+import { getLocations } from '@/services/locationsService'
 
 const loading = ref(true)
 const locations = ref([])

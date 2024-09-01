@@ -75,6 +75,7 @@ nav {
   border: none;
   color: #fff;
   cursor: pointer;
+  padding: 0;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -85,7 +86,7 @@ nav {
 
 .menu {
   animation: slideIn 0.1s ease-in-out;
-  background-color: #fff;
+  background-color: #141c3b;
   border-radius: 4px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   list-style-type: none;
@@ -101,7 +102,7 @@ nav {
 }
 
 .menu li a {
-  color: #333;
+  color: #fff;
   display: block;
   text-decoration: none;
   transition: color 0.3s ease;
