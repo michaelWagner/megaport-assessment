@@ -152,5 +152,5 @@ Write a reusable fetch function that GETs the list of Megaport enabled locations
 - [x] Create form for new baked goods.
 - [x] Apply basic CSS styling.
 - [x] Add form validation.
-- [ ] Implement data persistence.
 - [x] Enhance UI/UX.
+- [ ] Implement data persistence.

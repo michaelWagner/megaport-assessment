@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import Pagination from './Pagination.vue'
 
 const props = defineProps({
   data: {
@@ -38,6 +39,15 @@ const getAriaSort = (key) => {
   return 'none'
 }
 
+const currentPage = ref(1)
+const itemsPerPage = ref(10)
+
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value
+  const end = start + itemsPerPage.value
+  return sortedData.value.slice(start, end)
+})
+
 const sortedData = computed(() => {
   return [...props.data].sort((a, b) => {
     const order = props.isAsc ? 1 : -1
@@ -68,8 +78,8 @@ const sortedData = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <template v-if="sortedData.length">
-          <tr v-for="(item, idx) in sortedData" :key="`${idx}${item.id}`"><!-- item.id may not be unique -->
+        <template v-if="paginatedData.length">
+          <tr v-for="(item, idx) in paginatedData" :key="`${idx}${item.id}`"><!-- item.id may not be unique -->
             <td>{{ item.id }}</td>
             <td>{{ item.type }}</td>
             <td>{{ item.topping }}</td>
@@ -82,6 +92,12 @@ const sortedData = computed(() => {
         </template>
       </tbody>
     </table>
+    <Pagination 
+      :totalItems="sortedData.length"
+      :itemsPerPage="itemsPerPage"
+      :currentPage="currentPage"
+      @update:currentPage="currentPage = $event"
+    />
     <slot></slot>
   </div>
 </template>

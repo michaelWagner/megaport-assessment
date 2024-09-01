@@ -1,6 +1,6 @@
 <script setup>
-import PathViewer from '../components/PathViewer.vue'
-import Locations from '../components/Locations.vue'
+import PathViewer from '@/components/PathViewer.vue'
+import Locations from '@/components/Locations.vue'
 </script>
 
 <template>

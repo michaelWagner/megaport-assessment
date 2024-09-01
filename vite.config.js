@@ -24,6 +24,10 @@ export default defineConfig(({ command, mode }) => {
         '@': path.resolve(__dirname, 'src')
       },
       extensions: ['.js', '.ts', '.vue']
-    }
+    },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+    },
   }
 })
