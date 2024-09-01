@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import Pagination from './Pagination.vue'
 
 const props = defineProps({
@@ -41,6 +41,11 @@ const getAriaSort = (key) => {
 
 const currentPage = ref(1)
 const itemsPerPage = ref(10)
+
+// Watch for changes in data to reset pagination
+watch(() => props.data, () => {
+  currentPage.value = 1
+})
 
 const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage.value
