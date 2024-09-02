@@ -6,8 +6,9 @@ Welcome to Mikey Wagner's Megaport assessment! This project is a straightforward
 
 ### Core Features
 
-- **Interactive Data Table**: View and interact with a list of baked goods. Includes sorting and filtering functionality.
+- **Interactive Data Table**: View and interact with a list of baked goods. Includes pagination, sorting and filtering functionality.
 - **Add New Baked Goods**: A form to easily add new items to the list.
+- **Code Sandbox**: A fun place to test out functions.
 - **Responsive Design**: Ensures usability across various devices and screen sizes.
 
 ### Getting Started
@@ -56,9 +57,9 @@ npm run test
 
 ### Activity 1
 What we'll be looking at is how you approach the following:
-- use of Git
-- knowledge of JavaScript API
-- component composition knowledge
+- Use of Git
+- Knowledge of JavaScript API
+- Component composition knowledge
 - CSS knowledge
 
 #### Specifications:
@@ -83,6 +84,7 @@ See [baked-goods.js](https://github.com/michaelWagner/megaport-assessment/blob/m
 ### Activity 2
 
 ## See [objectService](https://github.com/michaelWagner/megaport-assessment/blob/main/src/services/objectService.js) for solution.
+### Also navigate to the [Code Sandbox](http://localhost:3000/megaport-assessment/code-sandbox) to see it in action
 
 Given a path to a property of an object, write a function that returns the value of the property. The function should accept a parameter of the path and optionally the object you are searching in, for example:
 
@@ -127,10 +129,16 @@ Write a reusable fetch function that GETs the list of Megaport enabled locations
 ### Project Structure
 
 - `src/`
+  - `assets/`
+    - `megaport.svg` - Any images.
   - `components/`
     - `DataTable.vue` - Reusable component where data is displayed and sorted.
   - `pages/`
-    - `Home.vue` - The heart of the application where the components are shown.
+    - `Splash.vue` - The heart of the application where users land on page load.
+  - `router/`
+    - `index.js`
+  - `constants/` - Any reusable data or constant variables.
+    - `index.js`
   - `services/`
     - `objectService.js` - Reusable functions that interacting with object data.
   - `App.vue` - The main component that ties the layout together.
@@ -140,17 +148,17 @@ Write a reusable fetch function that GETs the list of Megaport enabled locations
 
 #### Next Steps
 - **Data Persistence**: Implement a way to save data persistently, perhaps using localStorage or a backend service.
-- **Pagination**: For longer data sets, pagination will help the page not get cluttered.
 
 ### TODO Checklist
 
 - [x] Initialize project with Vue 3 and Vite.
 - [x] Set up Vitest for testing.
-- [x] Develop `BakedGoodsTable` component.
+- [x] Develop `DataTable` component.
 - [x] Implement sorting feature.
 - [x] Implement filtering feature.
 - [x] Create form for new baked goods.
 - [x] Apply basic CSS styling.
 - [x] Add form validation.
 - [x] Enhance UI/UX.
-- [ ] Implement data persistence.
+- [x] Add pagination to DataTable.
+- [x] Add Splash page.

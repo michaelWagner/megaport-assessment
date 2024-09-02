@@ -47,12 +47,6 @@ watch(() => props.data, () => {
   currentPage.value = 1
 })
 
-const paginatedData = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage.value
-  const end = start + itemsPerPage.value
-  return sortedData.value.slice(start, end)
-})
-
 const sortedData = computed(() => {
   return [...props.data].sort((a, b) => {
     const order = props.isAsc ? 1 : -1
@@ -60,6 +54,12 @@ const sortedData = computed(() => {
     if (a[props.sortKey] < b[props.sortKey]) return -order
     return 0
   })
+})
+
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value
+  const end = start + itemsPerPage.value
+  return sortedData.value.slice(start, end)
 })
 </script>
 
@@ -71,6 +71,7 @@ const sortedData = computed(() => {
           <th v-for="header in headers" 
             :key="header.key" 
             @click="sortBy(header.key)"
+            :class="{'is-selected': sortKey === header.key}"
             :aria-sort="getAriaSort(header.key)">
             <div>
               {{ header.label }}
@@ -85,9 +86,9 @@ const sortedData = computed(() => {
       <tbody>
         <template v-if="paginatedData.length">
           <tr v-for="(item, idx) in paginatedData" :key="`${idx}${item.id}`"><!-- item.id may not be unique -->
-            <td>{{ item.id }}</td>
-            <td>{{ item.type }}</td>
-            <td>{{ item.topping }}</td>
+            <td v-for="header in headers" :key="header.key" :style="{ 'width': header.columnSize}">
+              {{ item[header.key] }}
+            </td>
           </tr>
         </template>
         <template v-else>
@@ -119,7 +120,7 @@ table {
   margin-top: 20px;
   table-layout: auto;
   background-color: #2b2b2b;
-  color: #ffffff;
+  color: #F1F5F9;
   border: 1px solid #0C1124;
 }
 
@@ -137,7 +138,7 @@ th {
   background-color: #333333;
   color: #00aaff;
   position: relative;
-  min-width: 120px;
+  transition: min-width 0.3s ease, padding 0.3s ease;
 }
 
 th div {
@@ -147,6 +148,10 @@ th div {
 }
 
 th:hover {
+  background-color: #444444;
+}
+
+th.is-selected {
   background-color: #444444;
 }
 

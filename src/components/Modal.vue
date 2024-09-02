@@ -55,12 +55,12 @@ const closeModal = () => {
   width: 80%;
   max-width: 500px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
-  color: #ffffff;
+  color: #F1F5F9;
   border-radius: 8px;
 }
 
 .close {
-  color: #ffffff;
+  color: #F1F5F9;
   float: right;
   font-size: 24px;
   font-weight: bold;

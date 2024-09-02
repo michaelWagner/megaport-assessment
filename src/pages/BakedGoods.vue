@@ -8,9 +8,9 @@ import { BAKED_GOODS } from '@/constants'
 const data = ref(BAKED_GOODS.initialData)
 
 const headers = [
-  { key: 'id', label: 'ID' },
-  { key: 'type', label: 'Type' },
-  { key: 'topping', label: 'Topping' }
+  { columnSize: '100px', key: 'id', label: 'ID' },
+  { columnSize: '200px', key: 'type', label: 'Type' },
+  { columnSize: '300px', key: 'topping', label: 'Topping' }
 ]
 
 const filterText = ref('')

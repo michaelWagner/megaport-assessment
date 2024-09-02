@@ -27,37 +27,105 @@ onUnmounted(() => {
 
 <template>
   <header>
-    <div class="logo-title">
-      <img src="/megaport.svg" alt="Megaport Logo" class="logo" />
-      <h1>Megaport Assessment</h1>
-    </div>
-    <nav>
-      <button @click="toggleMenu" class="hamburger" aria-label="Toggle navigation">
-        ☰
-      </button>
-      <transition name="fade">
-        <ul v-if="menuOpen" class="menu">
-          <li><router-link @click="menuOpen = false" to="/">Home</router-link></li>
-          <li><router-link @click="menuOpen = false" to="/code-sandbox">Code Sandbox</router-link></li>
+    <div class="top-menu-container">
+      <nav class="top-menu view-container">
+        <ul>
+          <li><router-link to="/baked-goods">Baked Goods</router-link></li>
+          <li><router-link to="/code-sandbox">Code Sandbox</router-link></li>
         </ul>
-      </transition>
-    </nav>
+      </nav>
+    </div>
+    <div class="header-container view-container">
+      <router-link to="/" class="home-link">
+        <div class="logo-title">
+          <img src="/megaport.svg" alt="Megaport Logo" class="logo" />
+          <h1>Megaport Assessment</h1>
+        </div>
+      </router-link>
+      <nav class="mobile-nav">
+        <button @click="toggleMenu" class="hamburger" aria-label="Toggle navigation">
+          ☰
+        </button>
+        <transition name="fade">
+          <ul v-if="menuOpen" class="menu">
+            <li><router-link @click="menuOpen = false" to="/">Home</router-link></li>
+            <li><router-link @click="menuOpen = false" to="/code-sandbox">Code Sandbox</router-link></li>
+          </ul>
+        </transition>
+      </nav>
+    </div>
   </header>
 </template>
 
 <style scoped>
-header {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 24px 20px;
   background-color: #0C1124;
-  color: #fff;
+  color: #F1F5F9;
 }
 
+.top-menu-container {
+  background: linear-gradient(90deg,#6500D1 -2.13%,#1AA0FF 102.36%);
+  display: block;
+}
+
+@media (max-width: 768px) {
+.top-menu-container {
+    display: none;
+  }
+}
+
+.top-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 0;
+  padding: 0.7rem;
+  width: 50%;
+}
+
+.top-menu li {
+  color: #F1F5F9;
+  display: block;
+  text-decoration: none;
+}
+
+.top-menu li a {
+  color: #F1F5F9;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  text-decoration: none;
+}
+
+.top-menu li a:hover {
+  color: #CBD5F5;
+}
+
+.home-link {
+  text-decoration: none;
+}
 .logo-title {
   display: flex;
   align-items: center;
+}
+
+.logo-title h1 {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  letter-spacing: -0.4px;
 }
 
 .logo {
@@ -69,12 +137,23 @@ nav {
   position: relative;
 }
 
+nav.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav.mobile-nav {
+    display: block;
+  }
+}
+
 .hamburger {
   font-size: 24px;
   background: none;
   border: none;
-  color: #fff;
+  color: #F1F5F9;
   cursor: pointer;
+  font-size: 2rem !important;
   padding: 0;
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -102,7 +181,7 @@ nav {
 }
 
 .menu li a {
-  color: #fff;
+  color: #F1F5F9;
   display: block;
   text-decoration: none;
   transition: color 0.3s ease;

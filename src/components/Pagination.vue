@@ -29,9 +29,13 @@ const changePage = (page) => {
 
 <template>
   <div class="pagination">
-    <button class="prev-btn" @click.prevent="changePage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
+    <button class="prev-btn" @click.prevent="changePage(currentPage - 1)" :disabled="currentPage === 1">
+      <span>&#9664;</span> <!-- Left-pointing triangle -->
+    </button>
     <span>Page {{ currentPage }} of {{ totalPages }}</span>
-    <button class="next-btn" @click.prevent="changePage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
+    <button class="next-btn" @click.prevent="changePage(currentPage + 1)" :disabled="currentPage === totalPages">
+      <span>&#9654;</span> <!-- Right-pointing triangle -->
+    </button>
   </div>
 </template>
 
@@ -48,7 +52,6 @@ const changePage = (page) => {
   cursor: pointer;
   background: none;
   color: #007bff;
-  text-decoration: underline;
 }
 
 .pagination .prev-btn:hover, .next-btn:hover {
