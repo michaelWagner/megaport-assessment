@@ -163,7 +163,6 @@ nav.mobile-nav {
   transform: scale(1.1);
 }
 
-
 .menu {
   animation: slideIn 0.1s ease-in-out;
   background-color: #141c3b;
