@@ -153,7 +153,7 @@ nav.mobile-nav {
   border: none;
   color: #F1F5F9;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2rem !important;
   padding: 0;
   transition: color 0.3s ease, transform 0.3s ease;
 }
