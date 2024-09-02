@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../pages/Home.vue'
+import Splash from '../pages/Splash.vue'
+import BakedGoods from '../pages/BakedGoods.vue'
 import CodeSandbox from '../pages/CodeSandbox.vue'
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Splash },
+  { path: '/baked-goods', component: BakedGoods },
   { path: '/code-sandbox', component: CodeSandbox },
 
 ]
