@@ -7,7 +7,6 @@ export default defineConfig(({ command, mode }) => {
   const nodeModules = path.resolve(__dirname, './node_modules')
 
   return {
-    base: '/megaport-assessment/',
     plugins: [
       vue(),
     ],
