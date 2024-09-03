@@ -124,7 +124,7 @@ onUnmounted(() => {
 
 .logo-title h1 {
   font-size: 1.6rem;
-  font-weight: bolder;
+  font-weight: 900;
   letter-spacing: -0.4px;
 }
 
